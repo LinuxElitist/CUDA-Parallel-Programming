@@ -1,0 +1,16 @@
+This file uses (Static Shared Memory)SSM to implement simple linear regression. 
+
+====
+y = b0 + b1 * x; 
+
+use reduction calculate: 
+	- sum(xi * yi), sum(xi^2), sum(xi), sum(yi)
+
+then calculate: 
+	- mean(x), mean(y)
+
+finally: 
+	- b1 = {sum(xi * yi) - n*mean(x)*mean(y)}/{sum(xi^2) - n*mean(x)^2}
+	- b0 = mean(y) - b1*mean(x)
+
+

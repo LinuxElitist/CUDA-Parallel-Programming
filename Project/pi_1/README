@@ -1,0 +1,28 @@
+#######################################################################################################################
+Procedure to run the code:
+This folder contains Makefile where the targets to be built are specified.Please follow the following instructions-
+
+1) Run the "make" command.
+2) Executable with the name "Montecarlo" will be created in the same path.
+3) To run the executable use "./Montecarlo" on the shell.
+4) It should produce output
+
+
+#########################################################################################################################
+Notes:
+The output of the execuatble and profiling the code produced following output and was tested on NVIDIA-GTX480.
+
+==14685== NVPROF is profiling process 14685, command: ./Montecarlo
+GPU approximated Pi value is:3.14159215241670609
+==14685== Profiling application: ./Montecarlo
+==14685== Profiling result:
+   Start  Duration            Grid Size      Block Size     Regs*    SSMem*    DSMem*      Size  Throughput           Device   Context    Stream  Name
+231.84ms  3.2320us                    -               -         -         -         -        8B  2.4753MB/s  GeForce GTX 480         1         7  [CUDA memset]
+232.61ms  14.220ms            (256 1 1)       (256 1 1)        63        0B        0B         -           -  GeForce GTX 480         1         7  setupKernel(curandStateXORWOW*) [126]
+246.87ms  257.45ms            (256 1 1)       (256 1 1)        18  1.0240KB        0B         -           -  GeForce GTX 480         1         7  MonteCarloKernel(curandStateXORWOW*, __int64*, int) [132]
+504.33ms  2.2720us                    -               -         -         -         -        8B  3.5211MB/s  GeForce GTX 480         1         7  [CUDA memcpy DtoH]
+
+Regs: Number of registers used per CUDA thread. This number includes registers used internally by the CUDA driver and/or tools and can be more than what the compiler shows.
+SSMem: Static shared memory allocated per CUDA block.
+DSMem: Dynamic shared memory allocated per CUDA block.
+
